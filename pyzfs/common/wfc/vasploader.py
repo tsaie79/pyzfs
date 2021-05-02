@@ -17,9 +17,12 @@ class VaspWavefunctionLoader(WavefunctionLoader):
         super(VaspWavefunctionLoader, self).scan()
 
         from ase.io import read
-        from ...common.misc import vaspwfc
+        # from ...common.misc import vaspwfc
+        from VaspBandUnfolding.vaspwfc import vaspwfc
 
-        # Read cell from POSCAR file
+
+
+# Read cell from POSCAR file
         ase_cell = read("POSCAR")
         cell = Cell(ase_cell)
 

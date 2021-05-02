@@ -100,7 +100,7 @@ def main():
         filename = kwargs.pop("filename", None)
         wfcloader = QboxWavefunctionLoader(filename=filename)
     elif wfcfmt == "vasp":
-        from ..common.wfc.vasploader import VaspWavefunctionLoader
+        from .common.wfc.vasploader import VaspWavefunctionLoader
         wfcloader = VaspWavefunctionLoader()
     elif wfcfmt == "qeh5":
         from .common.wfc.qeh5loader import QEHDF5WavefunctionLoader

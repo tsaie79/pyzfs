@@ -54,7 +54,6 @@ class VaspWavefunctionLoader(WavefunctionLoader):
         super(VaspWavefunctionLoader, self).load(iorbs, sdm)
 
         counter = 0
-        print(iorbs)
         for iorb in iorbs:
             spin, band = self.wfc.iorb_sb_map[iorb]
             # spin = "up-down"
@@ -62,6 +61,7 @@ class VaspWavefunctionLoader(WavefunctionLoader):
             psir = self.wavecar.wfc_r(
                 ispin=1 if spin == "up" else 2, iband=band, norm=False
             )
+            print(psir)
 
             self.wfc.set_psir(iorb, psir)
 

@@ -123,6 +123,7 @@ class Wavefunction:
     def normalize(self, psir):
         """Normalize psir."""
         print(self.ft.n1, self.ft.n2, self.ft.n3)
+        print(psir.shape)
         assert psir.shape == (self.ft.n1, self.ft.n2, self.ft.n3)
         norm = np.sqrt(np.sum(np.abs(psir) ** 2) * self.cell.omega / self.ft.N)
         return psir / norm

@@ -59,7 +59,6 @@ class VaspWavefunctionLoader(WavefunctionLoader):
             psir = self.wavecar.wfc_r(
                 ispin=1 if spin == "up" else 2, iband=band
             )
-            print(iorb, psir)
             self.wfc.set_psir(iorb, psir)
 
             counter += 1

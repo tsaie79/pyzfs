@@ -100,7 +100,7 @@ class Wavefunction:
     def set_psir(self, iorb, psir):
         if iorb in self.iorb_psir_map:
             raise ValueError("psir {} already set".format(iorb))
-        # self.iorb_psir_map[iorb] = self.normalize(psir)
+        self.iorb_psir_map[iorb] = self.normalize(psir)
         self.iorb_psir_map[iorb] = psir
 
 

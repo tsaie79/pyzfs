@@ -37,7 +37,7 @@ class FourierTransform:
         Returns:
             function in G space (with same grid size)
         """
-        # assert fr.ndim == 3 and fr.shape == (self.n1, self.n2, self.n3)
+        assert fr.ndim == 3 and fr.shape == (self.n1, self.n2, self.n3)
         fg = (1./self.N) * fftn(fr)
         return fg
 

@@ -48,7 +48,7 @@ class VaspWavefunctionLoader(WavefunctionLoader):
 
         iorb_fname_map = ["WAVECAR"] * norbs
         self.wfc = Wavefunction(cell=cell, ft=ft, nuorbs=nuorbs, ndorbs=ndorbs,
-                                iorb_sb_map=iorb_sb_map, iorb_fname_map=iorb_fname_map)
+                                iorb_sb_map=iorb_sb_map, iorb_fname_map=iorb_fname_map, gamma=False)
 
     def load(self, iorbs, sdm=None):
         super(VaspWavefunctionLoader, self).load(iorbs, sdm)

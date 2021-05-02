@@ -99,9 +99,9 @@ def main():
         from .common.wfc.qboxloader import QboxWavefunctionLoader
         filename = kwargs.pop("filename", None)
         wfcloader = QboxWavefunctionLoader(filename=filename)
-    # elif wfcfmt == "vasp":
-    #     from ..common.wfc.vasploader import VaspWavefunctionLoader
-    #     wfcloader = VaspWavefunctionLoader()
+    elif wfcfmt == "vasp":
+        from ..common.wfc.vasploader import VaspWavefunctionLoader
+        wfcloader = VaspWavefunctionLoader()
     elif wfcfmt == "qeh5":
         from .common.wfc.qeh5loader import QEHDF5WavefunctionLoader
         prefix = kwargs.pop("prefix", "pwscf")

@@ -28,7 +28,9 @@ class VaspWavefunctionLoader(WavefunctionLoader):
 
         # Read wfc from WAVECAR file
         self.wavecar = vaspwfc()
-        ft = FourierTransform(*self.wavecar._ngrid)
+        ngrid = self.wavecar._ngrid.copy()*2
+        # ft = FourierTransform(*self.wavecar._ngrid)
+        ft = FourierTransform(*ngrid)
         nspin, nkpts, nbands = self.wavecar._occs.shape
         assert nspin == 2 and nkpts == 1
 

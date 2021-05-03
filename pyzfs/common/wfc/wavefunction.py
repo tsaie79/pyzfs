@@ -101,8 +101,6 @@ class Wavefunction:
         if iorb in self.iorb_psir_map:
             raise ValueError("psir {} already set".format(iorb))
         self.iorb_psir_map[iorb] = self.normalize(psir)
-        self.iorb_psir_map[iorb] = psir
-
 
     def get_psir(self, iorb):
         """Get psi(r) of certain index"""

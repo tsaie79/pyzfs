@@ -27,7 +27,7 @@ class VaspWavefunctionLoader(WavefunctionLoader):
         cell = Cell(ase_cell)
 
         # Read wfc from WAVECAR file
-        self.wavecar = vaspwfc(gamma_half="x")
+        self.wavecar = vaspwfc(lgamma=True)
         ngrid = self.wavecar._ngrid.copy()*2
         # ft = FourierTransform(*self.wavecar._ngrid)
         ft = FourierTransform(*ngrid)

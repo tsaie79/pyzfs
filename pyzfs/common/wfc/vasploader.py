@@ -59,7 +59,7 @@ class VaspWavefunctionLoader(WavefunctionLoader):
         for iorb in iorbs:
             spin, band = self.wfc.iorb_sb_map[iorb]
             psir = self.wavecar.wfc_r(
-                ispin=1 if spin == "up" else 2, iband=band, norm=False,
+                ispin=1 if spin == "up" else 2, iband=band, norm=True,
             )
 
             self.wfc.set_psir(iorb, psir)

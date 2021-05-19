@@ -15,7 +15,7 @@ class RunPyzfs(FiretaskBase):
     run pyzfs
     zfs_cmd:
         srun -n 2048 -c 2 python /home/tug03990/site-packages/pyzfs/examples/VASP/run.py > out (cori)
-        mpiexec -n 140 python /home/tug03990/site-packages/pyzfs/examples/VASP/run.py > out (owls, efrc)
+        mpiexec -n 20 pyzfs --wfcfmt vasp > out (owls, efrc)
     """
     required_params = ["pyzfs_cmd"]
 

@@ -1,4 +1,4 @@
-from fireworks import FiretaskBase, explicit_serialize
+from fireworks import explicit_serialize, FiretaskBase, FWAction
 
 from atomate.utils.utils import env_chk, get_logger, logger
 

@@ -12,7 +12,7 @@
 
 conda activate wf
 cd ~/ss/ss
-srun -n 2048 -c 2 python run.py > out
+#srun -n 2048 -c 2 python run.py > out
 #Dierectly use command line: pyzfs --wfcfmt vasp > out (better in owls and efrc)
 # CommonAdapter (SLURM) completed writing Template
 FW_submit.script lines 1-16/16 (END)

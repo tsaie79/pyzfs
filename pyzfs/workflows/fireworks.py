@@ -41,5 +41,5 @@ class PyzfsFW(Firework):
             raise ValueError("Must specify structure or previous calculation")
 
         t.append(RunPyzfs(pyzfs_cmd=pyzfs_cmd))
-        t.append()
+        t.append(PassCalcLocs())
         super(PyzfsFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)

@@ -22,7 +22,7 @@ class RunPyzfs(FiretaskBase):
     def run_task(self, fw_spec):
         cmd = env_chk(self["pyzfs_cmd"], fw_spec)
         logger.info("Running command: {}".format(cmd))
-        return_code = subprocess.call([cmd, ">out"], shell=True)
+        return_code = subprocess.call([cmd], shell=True)
         logger.info("Command {} finished running with returncode: {}".format(cmd, return_code))
 
 

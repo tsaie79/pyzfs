@@ -12,6 +12,7 @@ class PyzfsFW(Firework):
             structure=None,
             name="pyzfs",
             prev_calc_dir=None,
+            pyzfs_cmd=">>pyzfs_cmd<<",
             **kwargs
     ):
         fw_name = "{}-{}".format(
@@ -39,6 +40,6 @@ class PyzfsFW(Firework):
         else:
             raise ValueError("Must specify structure or previous calculation")
 
-        t.append(RunPyzfs())
+        t.append(RunPyzfs(pyzfs_cmd=pyzfs_cmd))
         t.append()
         super(PyzfsFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)

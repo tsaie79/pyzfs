@@ -169,6 +169,19 @@ class ZFSCalculation:
         self.Dvalue = 1.5 * dz
         self.Evalue = 0.5 * (dx - dy)
 
+        from monty.serialization import dumpfn
+        d = {
+            "D_tensor": self.D,
+            "D_eigenval": self.ev,
+            "D_eigenvec": [self.evc[:, 0], self.evc[:, 1], self.evc[:, 2]],
+            "Dx": dx,
+            "Dy": dy,
+            "Dz": dz,
+            "D": self.Dvalue,
+            "E": self.Evalue
+        }
+        dumpfn(d, "pyzfs_out.json", indent=4)
+
         if self.pgrid.onroot:
 
             print("\n\nTotal D tensor (MHz): ")

@@ -22,10 +22,10 @@ class PyzfsFW(Firework):
             structure.composition.reduced_formula if structure else "unknown", name
         )
 
-        irvsptodb_kwargs = irvsptodb_kwargs or {}
-        if "additional_fields" not in irvsptodb_kwargs:
-            irvsptodb_kwargs["additional_fields"] = {}
-        irvsptodb_kwargs["additional_fields"]["task_label"] = name
+        pyzfstodb_kwargs = pyzfstodb_kwargs or {}
+        if "additional_fields" not in pyzfstodb_kwargs:
+            pyzfstodb_kwargs["additional_fields"] = {}
+        pyzfstodb_kwargs["additional_fields"]["task_label"] = name
 
         t = []
 

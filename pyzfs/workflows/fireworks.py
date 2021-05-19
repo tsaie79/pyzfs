@@ -15,7 +15,7 @@ class PyzfsFW(Firework):
             prev_calc_dir=None,
             pyzfs_cmd=">>pyzfs_cmd<<",
             db_file=DB_FILE,
-            irvsptodb_kwargs=None,
+            pyzfstodb_kwargs=None,
             **kwargs
     ):
         fw_name = "{}-{}".format(
@@ -50,6 +50,6 @@ class PyzfsFW(Firework):
 
         t.append(RunPyzfs(pyzfs_cmd=pyzfs_cmd))
         t.append(PassCalcLocs(name=name))
-        t.append(PyzfsToDb(db_file=db_file, **irvsptodb_kwargs))
+        t.append(PyzfsToDb(db_file=db_file, **pyzfstodb_kwargs))
 
         super(PyzfsFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)

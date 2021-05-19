@@ -41,4 +41,4 @@ class PyzfsFW(Firework):
 
         t.append(RunPyzfs())
         t.append()
-    super(PyzfsFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)
+        super(PyzfsFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)

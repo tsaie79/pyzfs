@@ -171,9 +171,9 @@ class ZFSCalculation:
 
         from monty.serialization import dumpfn
         d = {
-            "D_tensor": self.D.tolist(),
-            "D_eigenval": self.ev.tolist(),
-            "D_eigenvec": self.evc.tolist(),
+            "D_tensor": self.D,
+            "D_eigenval": self.ev,
+            "D_eigenvec": self.evc,
             "Dx": dx,
             "Dy": dy,
             "Dz": dz,

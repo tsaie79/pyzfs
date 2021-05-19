@@ -1,0 +1,17 @@
+#!/bin/bash -l
+
+#SBATCH --nodes=64
+#SBATCH --qos=debug
+#SBATCH --time=00:30:00
+#SBATCH --account=m2663
+#SBATCH --job-name=ss
+#SBATCH --output=ss.out
+#SBATCH --error=ss.error
+#SBATCH --constraint=haswell
+
+
+conda activate wf
+cd ~/ss/ss
+srun -n 2048 -c 2 python run.py > out
+# CommonAdapter (SLURM) completed writing Template
+FW_submit.script lines 1-16/16 (END)

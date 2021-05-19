@@ -1,9 +1,10 @@
-from pyzfs.workflows.firetasks import RunPyzfs
+from pyzfs.workflows.firetasks import RunPyzfs, PyzfsToDb
 
 from fireworks import Firework
 
 from atomate.common.firetasks.glue_tasks import PassCalcLocs
 from atomate.vasp.firetasks.glue_tasks import CopyVaspOutputs
+from atomate.vasp.config import DB_FILE
 
 class PyzfsFW(Firework):
     def __init__(
@@ -13,11 +14,18 @@ class PyzfsFW(Firework):
             name="pyzfs",
             prev_calc_dir=None,
             pyzfs_cmd=">>pyzfs_cmd<<",
+            db_file=DB_FILE,
+            irvsptodb_kwargs=None,
             **kwargs
     ):
         fw_name = "{}-{}".format(
             structure.composition.reduced_formula if structure else "unknown", name
         )
+
+        irvsptodb_kwargs = irvsptodb_kwargs or {}
+        if "additional_fields" not in irvsptodb_kwargs:
+            irvsptodb_kwargs["additional_fields"] = {}
+        irvsptodb_kwargs["additional_fields"]["task_label"] = name
 
         t = []
 
@@ -42,4 +50,6 @@ class PyzfsFW(Firework):
 
         t.append(RunPyzfs(pyzfs_cmd=pyzfs_cmd))
         t.append(PassCalcLocs(name=name))
+        t.append(PyzfsToDb(db_file=db_file, **irvsptodb_kwargs))
+
         super(PyzfsFW, self).__init__(t, parents=parents, name=fw_name, **kwargs)
